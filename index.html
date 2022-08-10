@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <title>Password Bar</title>
+</head>
+<body>
+    <div id="first"></div>
+
+    <video autoplay muted loop id="BackVideo">
+        <source src="la casa de papel - Realizzato con Clipchamp.mp4" type="video/mp4">
+    </video>
+
+    <fieldset id="container">
+        <legend>Log in</legend>
+        <img src="logo.jpg" alt="logo la casa de papel" width="200" height="50">
+        <br><br>    
+        <div id="contain-buttons">
+            <!--BUTTON LOGIN FACEBOOK-->
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0" nonce="qAL3JRcX"></script>
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <!--BUTTON LOGIN GOOGLE-->
+            <div id="my-signin2"></div>
+            <script>
+                function onSuccess(googleUser) {
+                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                }   
+                function onFailure(error) {
+                    console.log(error);
+                }
+                function renderButton() {
+                    gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                    });
+                }
+            </script>
+            <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        </div>
+        <br>
+        <!--INPUT-->
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter your Username" autocomplete="off">
+        <br><br>
+        <label for="input">Password</label>
+        <input type="password" name="password" id="input" placeholder="Enter your password">
+        <div id="cont"><div id="barcolor"><div id="color"></div></div><span id="testo">Nessun Valore</span></div>
+    </fieldset>
+    <div id="backg" class="emoji1"></div>
+    <div id="realE"><img src="mask.png" alt="" width="50" height="50" id="changeImg"></div>
+    <script src="script.js"></script>
+</body>
+</html>
